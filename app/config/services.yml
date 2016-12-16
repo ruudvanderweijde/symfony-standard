@@ -7,3 +7,14 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    my_service:
+        class: AppBundle\Service\MyService
+
+    my_command:
+        class: AppBundle\Command\MyCommand
+        arguments:
+            - '@my_service'
+        tags:
+            -  { name: console.command }
+
